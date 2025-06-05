@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Turtle Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Turtle Project</h1>
+    </header>
+
+    <section class="Project">
+        <h2>About the Project</h2>
+        <hr>
+        <p>This project is about creating a graphical scene using Python Turtle module. I used the provided functions like "draw_rectangle", "draw_square", "draw_triangle", "draw_circle", "draw_polygon", "draw_curve", etc. to declare functions that draw different shapes. 
+        <br><br>   
+        In this improved version of my Project 4, I made the code better by: breaking up the large main function into smaller functions, makes the code easier to read and change. Creating reusable functions for things that appear multiple times, like clouds and trees. Using what we learned in class about making code more organized. This refactoring did not add new features but made the codebase more organized and easier to understand.
+</p>
+    </section>
+
+    <section class="Code">
+        <h2>My Code</h2>
+        <hr>
+        <p>
+            This function creates a cloud shape using multiple overlapping circles. The parameters allow for flexible positioning and scaling:
+            <br><br>
+            • <strong>t</strong>: The turtle is the graphics object for drawing<br>
+            • <strong>x, y</strong>: Starting position coordinates for the pattern<br>
+            • <strong>size</strong>: Scale factor (default 1.0) to adjust larger or smaller
+        </p>
+
+        <div class="code-container">
+            <code><span class="keyword">import</span> <span class="variable">turtle</span><br />
+    <span class="keyword">def</span> <span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>):<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">penup</span>()<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">goto</span>(<span class="parameter">x</span>, <span class="parameter">y</span>)<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">pendown</span>()<br />
+
+    <span class="keyword">def</span> <span class="function">draw_triangle</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">size</span>):<br />
+    &nbsp;&nbsp;<span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>)<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">begin_fill</span>()<br />
+    &nbsp;&nbsp;<span class="keyword">for</span> <span class="operator">_</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">3</span>):<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">forward</span>(<span class="parameter">size</span>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">right</span>(<span class="number">120</span>)<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">end_fill</span>()<br />
+
+    <span class="keyword">def</span> <span class="function">draw_cloud</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>):<br />
+    &nbsp;&nbsp;<span class="keyword">for</span> <span class="parameter">i</span> <span class="keyword">in</span> <span class="builtin">range</span>(<span class="number">4</span>):<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span> + <span class="parameter">i</span> * <span class="number">30</span>, <span class="parameter">y</span>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">begin_fill</span>()<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">circle</span>(<span class="number">25</span>)<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">end_fill</span>()<br />
+
+    <span class="keyword">def</span> <span class="function">draw_scene</span>(<span class="parameter">t</span>):<br />
+    &nbsp;&nbsp;<span class="function">draw_triangle</span>(<span class="parameter">t</span>, <span class="number">50</span>, <span class="number">-20</span>, <span class="number">60</span>)<br />
+    &nbsp;&nbsp;<span class="function">draw_cloud</span>(<span class="parameter">t</span>, <span class="number">0</span>, <span class="number">180</span>)<br />
+
+    <span class="keyword">def</span> <span class="function">main</span>():<br />
+    &nbsp;&nbsp;<span class="variable">screen</span> = <span class="variable">turtle</span>.<span class="function">Screen</span>()<br />
+    &nbsp;&nbsp;<span class="parameter">t</span> = <span class="variable">turtle</span>.<span class="function">Turtle</span>()<br />
+    &nbsp;&nbsp;<span class="parameter">t</span>.<span class="function">speed</span>(<span class="number">0</span>)<br />
+    &nbsp;&nbsp;<span class="function">draw_scene</span>(<span class="parameter">t</span>)<br />
+    &nbsp;&nbsp;<span class="variable">screen</span>.<span class="function">mainloop</span>()<br />
+
+    <span class="keyword">if</span> <span class="variable">__name__</span> <span class="operator">==</span> <span class="string">'__main__'</span>:<br />
+    &nbsp;&nbsp;<span class="function">main</span>()<br /></code>
+        </div>
+    </section>
+
+    <section class="Final">
+        <h2>Final Scene</h2>
+        <hr>
+        <p>Here's the completed turtle graphics scene featuring a house with Mountains, clouds, a bright sun, river, and a pine tree:</p>
+        
+        <div class="scene-container">
+            <img src="turtle.png" alt="Turtle Graphics Scene #15 - Three mountains, three trees, clouds, sun, and blue sky background" class="scene-image">
+        </div>
+        
+        <p class="scene-description">
+            The scene combines basic shapes to build elements like trees and clouds. The trees uses rectangles, circles and triangles, while the river is made from radius waves.
+        </p>
+    </section>
+
+    <footer>
+      Created by Emma Liao CS110, background images from:
+      <a href="https://www.instagram.com/p/CrS1XMNpSBs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" title="Check out this master piece" target="_blank">https://www.instagram.com</a>
+    </footer>
+</body>
+</html>
